@@ -163,7 +163,7 @@ a{
                                                 /* ASIDE */
 
 .aside{
-    background-color: #121C22;
+    background-color: #23282b;
     width: 35%;
     height: calc(100% - 60px);
     border-bottom-left-radius: 10px;
@@ -208,6 +208,16 @@ a{
     height: 80px;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.contact:hover {
+    background-color: #262d31;
+}
+
+
+.contact.active{
+    background-color: #323B41;
 }
 
 .img-contacts{
@@ -221,11 +231,11 @@ a{
     margin-left: 20px;
 }
 
-p{
+a > p{
     margin-top: 8px;
 }
 
-                                                 /* MAIN */
+                                                 /* MAIN - CHAT */
 
 .main{
     width: 65%;
@@ -233,6 +243,43 @@ p{
 
     position: relative;
 }
+
+.received{
+    width: fit-content;
+    background-color: #242D31;
+    margin-left: 20px;
+    margin-top: 7px;
+    padding: 10px 10px;
+    border-radius: 7px;
+
+
+    float: left;
+    clear: both;
+}
+
+.sent{
+    width: fit-content;
+    background-color: #036261;
+    margin-right: 20px;
+    margin-top: 7px;
+    padding: 10px 10px;
+    border-radius: 7px;
+    margin-left: 20px;
+
+
+    float: right;
+    clear: both;
+}
+
+.date-span{
+    font-size: 10px;
+    margin-top: 5px;
+    color: #A1BCBC;
+    float: right;
+}
+
+
+                                        /* WRITE MESSAGES AREA */
 
 .inpuTXT-div{
     width: 100%;

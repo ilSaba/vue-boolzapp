@@ -16,6 +16,8 @@
 <body>
     <div id="root">
         <div class="container">
+
+<!-- NAV -->
             <div class="nav-aside">
                 <a href="#"><i class="fas one fa-circle"></i><a>
                 <a href="#"><i class="fas two fa-circle"></i></a>
@@ -29,8 +31,8 @@
                 </div>
             </div>
             <div class="nav-main">
-                <a href="#"><img class="img-contacts nav" src="img/avatar_2.jpg" alt=""></a>
-                <a href="#" class="chat-name"><h3>Barbara</h3></a>
+                <a href="#"><img class="img-contacts nav" :src="`img/avatar${contacts[index].avatar}.jpg`" alt=""></a>
+                <a href="#" class="chat-name"><h3>{{ contacts[index].name }}</h3></a>
                 <div class="nav-main-right">
                     <a href="#"><i class="fas fa-video"></i></a>
                     <a href="#"><i class="fas fa-phone-alt"></i></a>
@@ -39,48 +41,33 @@
                     <a href="#"><i class="fas fa-chevron-down two"></i></a>
                 </div>
             </div>
+
+<!-- ASIDE -->
             <div class="aside">
+                <!-- INPUT -->
                 <div class="input">
                     <a href="#"><i class="fas fa-search"></i></a>               
                     <input class="contact-search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
-                <a href="#"><div class="contact one"></a>
-                    <a href="#"><img class="img-contacts" src="img/avatar_3.jpg" alt=""></a>
+
+<!-- CONTACTS -->
+                <div class="contact" v-for="(contact, i) in contacts" :class="(i == index) ? 'active' : '' " @click="index = i">
+                    <a href="#"><img class="img-contacts" :src="`img/avatar${contact.avatar}.jpg`" alt=""></a>
                     <div class="info-chat">
-                        <a href="#"><h4>Mamma</h4></a>
-                        <a href="#"><p>Testo</p></a>
-                    </div>
-                </div>
-                <div class="contact two">
-                    <a href="#"><img class="img-contacts" src="img/avatar_7.jpg" alt=""></a>
-                    <div class="info-chat">
-                        <a href="#"><h4>Mamma</h4></a>
-                        <a href="#"><p>Testo</p></a>
-                    </div>
-                </div>
-                <div class="contact three">
-                    <a href="#"><img class="img-contacts" src="img/avatar_7.jpg" alt=""></a>
-                    <div class="info-chat">
-                        <a href="#"><h4>Mamma</h4></a>
-                        <a href="#"><p>Testo</p></a>
-                    </div>
-                </div>
-                <div class="contact four">
-                    <a href="#"><img class="img-contacts" src="img/avatar_7.jpg" alt=""></a>
-                    <div class="info-chat">
-                        <a href="#"><h4>Mamma</h4></a>
-                        <a href="#"><p>Testo</p></a>
-                    </div>
-                </div>
-                <div class="contact five">
-                    <a href="#"><img class="img-contacts" src="img/avatar_7.jpg" alt=""></a>
-                    <div class="info-chat">
-                        <a href="#"><h4>Mamma</h4></a>
+                        <a href="#"><h4>{{ contact.name }}</h4></a>
                         <a href="#"><p>Testo</p></a>
                     </div>
                 </div>
             </div>
+
+<!-- MAIN -->
             <div class="main">
+                <div v-for="message in contacts[index].messages" :class="message.status">
+                    <p>{{ message.text }}</p>
+                    <span class="date-span">{{ getTime(message.date) }}</span>
+                </div>
+
+<!-- WRITE MESSAGES AREA -->
                 <div class="inpuTXT-div">
                     <a href="#"><i class="far fa-grin i-txt"></i></a>
                     <a href="#"><i class="fas fa-paperclip i-txt"></i></a>
