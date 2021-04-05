@@ -16,7 +16,6 @@
 <body>
     <div id="root">
         <div class="container">
-
 <!-- NAV -->
             <div class="nav-aside">
                 <a href="#"><i class="fas one fa-circle"></i><a>
@@ -32,7 +31,10 @@
             </div>
             <div class="nav-main">
                 <a href="#"><img class="img-contacts nav" :src="`img/avatar${contacts[index].avatar}.jpg`" alt=""></a>
-                <a href="#" class="chat-name"><h3>{{ contacts[index].name }}</h3></a>
+                <div class="name-last-access">
+                    <a href="#" class="chat-name"><h3>{{ contacts[index].name }}</h3></a>
+                <span>Ultimo accesso il {{ getLastAccess(index) }}</span>
+                </div>
                 <div class="nav-main-right">
                     <a href="#"><i class="fas fa-video"></i></a>
                     <a href="#"><i class="fas fa-phone-alt"></i></a>
@@ -41,7 +43,6 @@
                     <a href="#"><i class="fas fa-chevron-down two"></i></a>
                 </div>
             </div>
-
 <!-- ASIDE -->
             <div class="aside">
                 <!-- INPUT -->
@@ -49,7 +50,6 @@
                     <a href="#"><i class="fas fa-search"></i></a>               
                     <input class="contact-search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
-
 <!-- CONTACTS -->
                 <div class="contact" v-for="(contact, i) in contacts" :class="(i == index) ? 'active' : '' " @click="index = i">
                     <a href="#"><img class="img-contacts" :src="`img/avatar${contact.avatar}.jpg`" alt=""></a>
@@ -59,25 +59,23 @@
                     </div>
                 </div>
             </div>
-
 <!-- MAIN -->
             <div class="main">
                 <div v-for="message in contacts[index].messages" :class="message.status">
                     <p>{{ message.text }}</p>
                     <span class="date-span">{{ getTime(message.date) }}</span>
                 </div>
-
 <!-- WRITE MESSAGES AREA -->
                 <div class="inpuTXT-div">
                     <a href="#"><i class="far fa-grin i-txt"></i></a>
                     <a href="#"><i class="fas fa-paperclip i-txt"></i></a>
-                    <input class="inpuTXT" type="text" placeholder="Scrivi un messaggio">
+                    <input @keyup.enter="send" v-model="message" class="inpuTXT" type="text" placeholder="Scrivi un messaggio">
                     <a href="#"><i class="fas fa-microphone i-txt"></i></a>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="dati.js"></script>
     <script src="master.js"></script>

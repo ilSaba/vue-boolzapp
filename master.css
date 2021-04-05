@@ -69,6 +69,14 @@ body{
     justify-content: flex-end;
 }
 
+.name-last-access{
+    font-size: 13px;
+    color: #A0BCBC;
+    margin-left: 10px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
 
 
 
@@ -125,12 +133,6 @@ body{
     height: 20px;
     width: 10px;
     margin: 0 20px;
-}
-
-.chat-name{
-    color: #fff;
-    text-decoration: none;
-    margin-left: 13px;
 }
 
 a{
