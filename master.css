@@ -251,7 +251,10 @@ a > p{
     background-color: #242D31;
     margin-left: 20px;
     margin-top: 7px;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-right: 25px;
+    padding-left: 10px;
+    
     border-radius: 7px;
 
 
@@ -264,7 +267,10 @@ a > p{
     background-color: #036261;
     margin-right: 20px;
     margin-top: 7px;
-    padding: 10px 10px;
+    padding: 10px 0;
+    padding-right: 25px;
+    padding-left: 10px;
+    
     border-radius: 7px;
     margin-left: 20px;
 
@@ -280,20 +286,43 @@ a > p{
     float: right;
 }
 
-/* .chevron-message{
+.chevron-message{
+    display: none;
     margin-left: 5px;
     margin-right: 0;
-} */
-
-
-main:hover{
-    display: none;
+    position: absolute;
+    right: -20px;
+    top: -2px;
 }
-      
 
-.sent:hover + .fa-chevron-down{
-    display: block;
-    color: aliceblue;
+
+.sent:hover .chevron-message, .received:hover .chevron-message {
+    display: inline-block;   
+}
+.main div p {
+    position: relative;
+}
+.chevron-menu span {
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.chevron-menu span:hover {
+    background-color: #2A2F32;
+}
+.received .chevron-menu {
+    position: absolute;
+    left: 100px;
+}
+.sent .chevron-menu {
+    position: absolute;
+    right: 20px;
+}
+.received .chevron-menu , .sent .chevron-menu {
+    background-color: #323B41;
+    border-radius: 5px;
+    padding: 5px 0;
+    cursor: pointer;
 }
 
 
