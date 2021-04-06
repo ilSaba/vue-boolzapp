@@ -48,10 +48,10 @@
                 <!-- INPUT -->
                 <div class="input">
                     <a href="#"><i class="fas fa-search"></i></a>               
-                    <input class="contact-search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="filter" class="contact-search" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 <!-- CONTACTS -->
-                <div class="contact" v-for="(contact, i) in contacts" :class="(i == index) ? 'active' : '' " @click="index = i">
+                <div class="contact" v-for="(contact, i) in contacts" v-if="contact.name.toLowerCase().includes(filter.toLowerCase())" :class="(i == index) ? 'active' : '' " @click="index = i">
                     <a href="#"><img class="img-contacts" :src="`img/avatar${contact.avatar}.jpg`" alt=""></a>
                     <div class="info-chat">
                         <a href="#"><h4>{{ contact.name }}</h4></a>
@@ -62,7 +62,7 @@
 <!-- MAIN -->
             <div class="main">
                 <div v-for="message in contacts[index].messages" :class="message.status">
-                    <p>{{ message.text }}</p>
+                    <p>{{ message.text }}<i class="fa fa-chevron-down chevron-message"></i>
                     <span class="date-span">{{ getTime(message.date) }}</span>
                 </div>
 <!-- WRITE MESSAGES AREA -->

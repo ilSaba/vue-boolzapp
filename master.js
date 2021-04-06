@@ -5,6 +5,7 @@ var app = new Vue({
         index: 0,
         contacts: contacts,
         message: '',
+        filter: '',
     },
     methods: {
         getTime: function (date) {

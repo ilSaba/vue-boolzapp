@@ -280,6 +280,22 @@ a > p{
     float: right;
 }
 
+/* .chevron-message{
+    margin-left: 5px;
+    margin-right: 0;
+} */
+
+
+main:hover{
+    display: none;
+}
+      
+
+.sent:hover + .fa-chevron-down{
+    display: block;
+    color: aliceblue;
+}
+
 
                                         /* WRITE MESSAGES AREA */
 
